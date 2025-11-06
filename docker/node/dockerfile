@@ -1,0 +1,12 @@
+FROM debian:bookworm
+
+WORKDIR /app
+
+COPY Tdarr_Updater .
+
+RUN ./Tdarr_Updater
+RUN rm -R Tdarr_Node
+EXPOSE 8265
+EXPOSE 8266
+
+CMD ./Tdarr_Server/Tdarr_Server
